@@ -1,5 +1,12 @@
+import Layout from './components/Layout/Layout';
+import AuthPage from './pages/AuthPage';
+
 function App() {
-  return <div>Basic E-Commerce</div>;
+  return (
+    <Layout>
+      <AuthPage />
+    </Layout>
+  );
 }
 
 export default App;
