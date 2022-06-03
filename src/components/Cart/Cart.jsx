@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classes from './Cart.module.css';
+import CartItem from './CartItem';
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const subTotal = useSelector((state) => state.cart.subTotal);
@@ -39,39 +40,7 @@ const Cart = () => {
         <div className={classes.bottom}>
           <div className={classes.info}>
             {cartItems.map((product) => (
-              <div key={product.id}>
-                <div className={classes.product}>
-                  <div className={classes.productDetail}>
-                    <img
-                      className={classes.image}
-                      src={product.image}
-                      alt={product.name}
-                    />
-                    <div className={classes.details}>
-                      <span className={classes.productName}>
-                        <b>Product:</b> {product.name}
-                      </span>
-                      <span className={classes.productcategory}>
-                        <b>Category:</b> {product.category}
-                      </span>
-                    </div>
-                  </div>
-                  <div className={classes.priceDetail}>
-                    <div className={classes.productAmountContainer}>
-                      <span>+</span>
-                      <div className={classes.productAmount}>
-                        {product.quantity}
-                      </div>
-                      <span>-</span>
-                    </div>
-
-                    <div className={classes.productPrice}>
-                      BDT {product.totalPrice}
-                    </div>
-                  </div>
-                </div>
-                <div className={classes.hr} />
-              </div>
+              <CartItem key={product.id} {...product} />
             ))}
           </div>
           <div className={classes.summary}>
