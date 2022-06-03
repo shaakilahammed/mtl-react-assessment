@@ -2,9 +2,12 @@ import React, { useState, useRef } from 'react';
 
 import classes from './AuthForm.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../store/auth-slice';
 
 const AuthForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
@@ -67,6 +70,7 @@ const AuthForm = () => {
       })
       .then((data) => {
         console.log(data);
+        dispatch(authActions.login({ ...data }));
         navigate('/');
       })
       .catch((error) => {
