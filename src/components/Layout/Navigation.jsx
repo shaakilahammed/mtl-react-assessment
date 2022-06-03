@@ -13,7 +13,9 @@ const Navigation = () => {
   };
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>E-Commerce</div>
+      <Link to="/">
+        <div className={classes.logo}>E-Commerce</div>
+      </Link>
       <nav>
         <ul>
           {!isLoggedIn && (
@@ -26,7 +28,9 @@ const Navigation = () => {
           {isLoggedIn && (
             <>
               <li>
-                <CartButton />
+                <Link to="/cart">
+                  <CartButton />
+                </Link>
               </li>
               <li>
                 <button

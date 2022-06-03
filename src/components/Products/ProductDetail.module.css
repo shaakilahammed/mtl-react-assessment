@@ -63,3 +63,14 @@
   cursor: pointer;
   font-weight: 500;
 }
+
+.incDecCart {
+  font-size: 25px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.loader {
+  font-size: 20px;
+  text-align: center;
+}
