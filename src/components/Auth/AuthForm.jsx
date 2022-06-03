@@ -34,7 +34,6 @@ const AuthForm = () => {
     const formIsValid = enteredEmailIsValid && enteredPasswordIsValid;
 
     if (!formIsValid) return;
-    console.log('valid');
     setIsLoading(true);
 
     let url;

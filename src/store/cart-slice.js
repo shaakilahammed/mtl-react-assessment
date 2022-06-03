@@ -69,6 +69,11 @@ const cartSlice = createSlice({
       }
       state.subTotal -= existingItem.price;
     },
+    clearCart(state) {
+      state.items = [];
+      state.totalQuantity = 0;
+      state.subTotal = 0;
+    },
   },
 });
 
