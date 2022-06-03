@@ -1,15 +1,19 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { cartActions } from '../../store/cart-slice';
 import CartIcon from '../Cart/CartIcon';
 import ViewIcon from '../Cart/ViewIcon';
 import classes from './Product.module.css';
 
 const Product = ({ item }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const addItemToCartHandler = () => {
-    dispatch(cartActions.addItemToCart({ ...item }));
+    console.log(isLoggedIn);
+    if (isLoggedIn) dispatch(cartActions.addItemToCart({ ...item }));
+    else navigate('/login');
   };
   return (
     <div className={classes.container}>
